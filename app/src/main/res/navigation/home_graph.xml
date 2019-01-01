@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/home_graph"
+            app:startDestination="@id/cartFragment2">
+
+    <fragment android:id="@+id/cartFragment2" android:name="com.example.ltvlu.navitaion_jetpack.fragment.CartFragment"
+              android:label="fragment_cart" tools:layout="@layout/fragment_cart"/>
+    <fragment android:id="@+id/settingFragment2"
+              android:name="com.example.ltvlu.navitaion_jetpack.fragment.SettingFragment"
+              android:label="fragment_setting" tools:layout="@layout/fragment_setting"/>
+    <fragment android:id="@+id/shopFragment2" android:name="com.example.ltvlu.navitaion_jetpack.fragment.ShopFragment"
+              android:label="fragment_shop" tools:layout="@layout/fragment_shop"/>
+</navigation>

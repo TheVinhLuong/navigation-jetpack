@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/shopFragment2"
+        android:title="Shop"/>
+    <item android:id="@+id/cartFragment2"
+          android:title="Cart"/>
+    <item android:id="@+id/settingFragment2"
+          android:title="Setting"/>
+</menu>
