@@ -13,6 +13,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment, finalHost)
             .setPrimaryNavigationFragment(finalHost) // this is the equivalent to app:defaultNavHost="true"
-            .commit()
+            .commitNow()
     }
 }

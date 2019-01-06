@@ -1,25 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/global_graph"
             app:startDestination="@id/splashFragment">
 
     <fragment android:id="@+id/splashFragment"
               android:name="com.example.ltvlu.navitaion_jetpack.fragment.SplashFragment" android:label="fragment_splash"
               tools:layout="@layout/fragment_splash">
-        <action android:id="@+id/action_splashFragment_to_loginFragment" app:destination="@id/loginFragment"
-                app:popUpToInclusive="false"/>
-        <action android:id="@+id/action_splashFragment_to_registerFragment" app:destination="@id/registerFragment"/>
-        <action android:id="@+id/action_splashFragment_to_homeFragment" app:destination="@id/homeFragment"/>
+        <action android:id="@+id/action_splashFragment_to_requireLoginNav" app:destination="@id/requireLoginNav"/>
+        <action android:id="@+id/action_splashFragment_to_directToHomeNav" app:destination="@id/directToHomeNav"/>
     </fragment>
-    <fragment android:id="@+id/registerFragment"
-              android:name="com.example.ltvlu.navitaion_jetpack.fragment.RegisterFragment"
-              android:label="fragment_register" tools:layout="@layout/fragment_register"/>
-    <fragment android:id="@+id/loginFragment" android:name="com.example.ltvlu.navitaion_jetpack.fragment.LoginFragment"
-              android:label="fragment_login" tools:layout="@layout/fragment_login">
-        <action android:id="@+id/action_loginFragment_to_homeFragment" app:destination="@id/homeFragment"/>
+
+    <navigation android:id="@+id/requireLoginNav" android:label="nav_require_login"
+                app:startDestination="@id/loginFragment2">
+
+        <fragment android:id="@+id/loginFragment2"
+                  android:name="com.example.ltvlu.navitaion_jetpack.fragment.LoginFragment"
+                  android:label="fragment_login" tools:layout="@layout/fragment_login">
+            <action android:id="@+id/action_loginFragment2_to_registerFragment2"
+                    app:destination="@id/registerFragment2"/>
+            <action android:id="@+id/action_loginFragment2_to_homeFragment" app:destination="@id/homeFragment"/>
+        </fragment>
+        <fragment android:id="@+id/registerFragment2"
+                  android:name="com.example.ltvlu.navitaion_jetpack.fragment.RegisterFragment"
+                  android:label="fragment_register" tools:layout="@layout/fragment_register">
+            <action android:id="@+id/action_registerFragment2_to_loginFragment2" app:destination="@id/loginFragment2"/>
+        </fragment>
+        <fragment android:id="@+id/homeFragment"
+                  android:name="com.example.ltvlu.navitaion_jetpack.fragment.HomeFragment"
+                  android:label="HomeFragment"/>
+        <action android:id="@+id/action_global_checkoutFragment" app:destination="@id/checkoutFragment">
+            <argument android:name="productName" app:argType="string" android:defaultValue="Just login in this session"/>
+        </action>
+    </navigation>
+    <navigation android:label="nav_direct_to_home" android:id="@+id/directToHomeNav"
+                app:startDestination="@id/homeFragment3">
+
+        <fragment android:id="@+id/homeFragment3"
+                  android:name="com.example.ltvlu.navitaion_jetpack.fragment.HomeFragment"
+                  android:label="HomeFragment"/>
+        <action android:id="@+id/action_global_checkoutFragment22" app:destination="@id/checkoutFragment2">
+            <argument android:name="productName" app:argType="string" android:defaultValue="Login from previous use session"/>
+        </action>
+    </navigation>
+    <fragment android:id="@+id/checkoutFragment"
+              android:name="com.example.ltvlu.navitaion_jetpack.fragment.CheckoutFragment"
+              android:label="fragment_checkout" tools:layout="@layout/fragment_checkout">
+        <argument android:name="productName" app:argType="string" android:defaultValue=""/>
     </fragment>
-    <fragment android:id="@+id/homeFragment" android:name="com.example.ltvlu.navitaion_jetpack.fragment.HomeFragment"
-              android:label="fragment_home" tools:layout="@layout/fragment_home">
+    <fragment android:id="@+id/checkoutFragment2"
+              android:name="com.example.ltvlu.navitaion_jetpack.fragment.CheckoutFragment"
+              android:label="fragment_checkout" tools:layout="@layout/fragment_checkout">
+        <argument android:name="productName" app:argType="string"/>
     </fragment>
 </navigation>

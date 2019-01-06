@@ -33,13 +33,10 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_login.setOnClickListener { 
-            Navigation.findNavController(it).navigate(R.id.loginFragment)
+            Navigation.findNavController(it).navigate(R.id.requireLoginNav)
         }
         btn_home.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.homeFragment)
-        }
-        btn_register.setOnClickListener { 
-            Navigation.findNavController(it).navigate(R.id.registerFragment)
+            Navigation.findNavController(it).navigate(R.id.directToHomeNav)
         }
     }
 }
