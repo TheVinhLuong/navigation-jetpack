@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 
 import com.example.ltvlu.navitaion_jetpack.R
@@ -36,7 +37,7 @@ class SplashFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.requireLoginNav)
         }
         btn_home.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.directToHomeNav)
+            Navigation.findNavController(it).navigate(R.id.directToHomeNav, null, NavOptions.Builder().setPopUpTo(R.id.splashFragment, true).build())
         }
     }
 }

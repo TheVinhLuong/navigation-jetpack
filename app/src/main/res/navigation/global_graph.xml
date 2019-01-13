@@ -29,9 +29,7 @@
         <fragment android:id="@+id/homeFragment"
                   android:name="com.example.ltvlu.navitaion_jetpack.fragment.HomeFragment"
                   android:label="HomeFragment"/>
-        <action android:id="@+id/action_global_checkoutFragment" app:destination="@id/checkoutFragment">
-            <argument android:name="productName" app:argType="string" android:defaultValue="Just login in this session"/>
-        </action>
+        <action android:id="@+id/action_global_checkoutFragment" app:destination="@id/checkoutFragment"/>
     </navigation>
     <navigation android:label="nav_direct_to_home" android:id="@+id/directToHomeNav"
                 app:startDestination="@id/homeFragment3">
@@ -39,18 +37,18 @@
         <fragment android:id="@+id/homeFragment3"
                   android:name="com.example.ltvlu.navitaion_jetpack.fragment.HomeFragment"
                   android:label="HomeFragment"/>
-        <action android:id="@+id/action_global_checkoutFragment22" app:destination="@id/checkoutFragment2">
-            <argument android:name="productName" app:argType="string" android:defaultValue="Login from previous use session"/>
-        </action>
+        <action android:id="@+id/action_global_checkoutFragment22" app:destination="@id/checkoutFragment2"/>
     </navigation>
     <fragment android:id="@+id/checkoutFragment"
               android:name="com.example.ltvlu.navitaion_jetpack.fragment.CheckoutFragment"
               android:label="fragment_checkout" tools:layout="@layout/fragment_checkout">
-        <argument android:name="productName" app:argType="string" android:defaultValue=""/>
+        <argument android:name="productName" app:argType="string"/>
     </fragment>
     <fragment android:id="@+id/checkoutFragment2"
               android:name="com.example.ltvlu.navitaion_jetpack.fragment.CheckoutFragment"
               android:label="fragment_checkout" tools:layout="@layout/fragment_checkout">
         <argument android:name="productName" app:argType="string"/>
+
+        <deepLink app:uri="www.example.com/{productName}" />
     </fragment>
 </navigation>

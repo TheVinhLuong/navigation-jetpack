@@ -33,7 +33,7 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btn_login.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.loginFragment2)
+            Navigation.findNavController(it).popBackStack()
         }
     }
 }

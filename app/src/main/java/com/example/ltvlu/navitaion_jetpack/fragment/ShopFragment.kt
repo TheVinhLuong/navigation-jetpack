@@ -7,8 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
-
+import com.example.ltvlu.navitaion_jetpack.DirectToHomeNavDirections
 import com.example.ltvlu.navitaion_jetpack.R
 import com.example.ltvlu.navitaion_jetpack.RequireLoginNavDirections
 import kotlinx.android.synthetic.main.fragment_shop.*
@@ -36,8 +35,13 @@ class ShopFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_product.setOnClickListener {
-            val action = RequireLoginNavDirections.actionGlobalCheckoutFragment().setProductName(et_product_name.text.toString())
-            Navigation.findNavController(parentFragment!!.parentFragment!!.view!!).navigate(action)
+            if(parentFragment!!.parentFragment!!.parentFragment!!.childFragmentManager.backStackEntryCount > 1) {
+                val action = RequireLoginNavDirections.actionGlobalCheckoutFragment(et_product_name.text.toString())
+                Navigation.findNavController(parentFragment!!.parentFragment!!.view!!).navigate(action)
+            } else {
+                val action = DirectToHomeNavDirections.actionGlobalCheckoutFragment22(et_product_name.text.toString())
+                Navigation.findNavController(parentFragment!!.parentFragment!!.view!!).navigate(action)
+            }
         }
     }
 }
