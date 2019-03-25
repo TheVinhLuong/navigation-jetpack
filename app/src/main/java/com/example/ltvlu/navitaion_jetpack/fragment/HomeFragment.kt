@@ -2,11 +2,12 @@ package com.example.ltvlu.navitaion_jetpack.fragment
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.GravityCompat
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -23,7 +24,7 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  *
  */
-class HomeFragment : Fragment() {
+class HomeFragment : androidx.fragment.app.Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,8 +49,12 @@ class HomeFragment : Fragment() {
             nav_view,
             navHostFragment.navController
         )
+        NavigationUI.setupWithNavController(
+            toolbar,
+            navHostFragment.navController
+        )
         toolbar.setNavigationOnClickListener {
-            drawer_layout.openDrawer(Gravity.START)
+            drawer_layout.openDrawer(GravityCompat.START)
         }
 
         NavigationUI.setupWithNavController(toolbar, Navigation.findNavController(view).apply {

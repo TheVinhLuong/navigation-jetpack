@@ -7,14 +7,6 @@ import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 
 class IntentServiceNavigator: Navigator<IntentServiceDestination>(){
-    override fun navigate(
-        destination: IntentService,
-        args: Bundle?,
-        navOptions: NavOptions?,
-        navigatorExtras: Extras?
-    ): NavDestination? {
-
-    }
 
     override fun navigate(
         destination: IntentServiceDestination,

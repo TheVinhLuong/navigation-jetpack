@@ -2,7 +2,7 @@ package com.example.ltvlu.navitaion_jetpack.fragment
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +22,7 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  *
  */
-class ShopFragment : Fragment() {
+class ShopFragment : androidx.fragment.app.Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,8 +36,8 @@ class ShopFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_product.setOnClickListener {
-            val action = RequireLoginNavDirections.actionGlobalCheckoutFragment().setProductName(et_product_name.text.toString())
-            Navigation.findNavController(parentFragment!!.parentFragment!!.view!!).navigate(action)
+            val action = RequireLoginNavDirections.actionGlobalCheckoutFragment(et_product_name.text.toString())
+            Navigation.findNavController(parentFragment!!.parentFragment!!.parentFragment!!.view!!).navigate(action)
         }
     }
 }
